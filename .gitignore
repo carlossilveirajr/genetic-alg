@@ -8,4 +8,6 @@ pom.xml.asc
 /.lein-*
 /.nrepl-port
 .hgignore
-.hg/
+.project
+genetic-alg.iml
+.idea

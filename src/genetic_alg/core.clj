@@ -1,6 +1,8 @@
-(ns genetic-alg.core)
+(ns genetic-alg.core
+  (:require [genetic-alg.population :refer :all]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(def target (create-population 100 50))
+(def init (create-population 100 50))
+
+(defn -main []
+  (println "hello"))
