@@ -1,8 +1,19 @@
 (ns genetic-alg.core
-  (:require [genetic-alg.population :refer :all]))
+  (:require [genetic-alg.population :refer :all]
+            [genetic-alg.operations :refer :all]))
 
-(def target (create-cromossome 50))
-(def init (create-population 100 50))
+(def CROMOSSOME-SIZE 5)
+(def POP-SIZE 4)
+
+(def target (create-cromossome CROMOSSOME-SIZE))
+(def init (create-population POP-SIZE CROMOSSOME-SIZE))
 
 (defn -main []
-  (println "hello"))
+  (def population init)
+     (while (in-pop population target)
+       (def population
+         (evolute population target POP-SIZE CROMOSSOME-SIZE))
+       )
+     (doseq [i population] (println i))
+     (println target)
+  )

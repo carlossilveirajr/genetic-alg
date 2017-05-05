@@ -1,4 +1,5 @@
-(ns genetic-alg.operations)
+(ns genetic-alg.operations
+  (:require [genetic-alg.population :refer :all]))
 
 (defn- count-identical-element
   ([cr1 cr2] (count-identical-element cr1 cr2 0))
@@ -25,3 +26,20 @@
           true
           (check-population rest cr closeness)))
       false))
+
+(defn in-pop
+  ""
+  [population cromossome]
+    (check-population population, cromossome, 1))
+
+(defn acc-close-to
+  ""
+  [cr1 cr2]
+    (>= (close-to cr1 cr2) 0.8))
+
+(defn evolute
+  ""
+  [pop target pop-size cromo-size]
+    (def a (remove #(-> acc-close-to target) pop))
+    (conj a (create-population (- pop-size (count a)) cromo-size))
+  )
